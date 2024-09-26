@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(
       Duration(seconds: 2),
-      () => Navigator.of(context).pushNamed(HomeScreen.routName),
+      () => Navigator.of(context).pushReplacementNamed(HomeScreen.routName),
     );
     return Image.asset(
       'assets/images/splash.png',
