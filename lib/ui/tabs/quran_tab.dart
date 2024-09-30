@@ -175,7 +175,9 @@ class _QuranTabState extends State<QuranTab> {
           virsesCount.isEmpty
               ? Expanded(
                   child: Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
                 ))
               : Expanded(
                   child: ListView.separated(
@@ -191,14 +193,14 @@ class _QuranTabState extends State<QuranTab> {
                             Expanded(
                               child: Text(
                                 suraNames[index],
-                                style: Theme.of(context).textTheme.titleSmall,
+                                style: Theme.of(context).textTheme.titleMedium,
                                 textAlign: TextAlign.center,
                               ),
                             ),
                             Expanded(
                               child: Text(
                                 virsesCount[index].toString(),
-                                style: Theme.of(context).textTheme.titleSmall,
+                                style: Theme.of(context).textTheme.titleMedium,
                                 textAlign: TextAlign.center,
                               ),
                             )
@@ -216,11 +218,12 @@ class _QuranTabState extends State<QuranTab> {
                 )
         ],
       ),
-      Align(
-          alignment: Alignment.center,
-          child: VerticalDivider(
-            indent: MediaQuery.of(context).size.height * .25 + 2.5,
-          ))
+      if (virsesCount.isNotEmpty)
+        Align(
+            alignment: Alignment.center,
+            child: VerticalDivider(
+              indent: MediaQuery.of(context).size.height * .25 + 2.5,
+            ))
     ]);
   }
 

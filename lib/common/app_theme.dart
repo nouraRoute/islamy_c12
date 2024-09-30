@@ -10,8 +10,8 @@ class AppTheme {
           brightness: Brightness.light,
           primary: AppColors.mainLightColor,
           onPrimary: Colors.white,
-          secondary: Colors.white,
-          onSecondary: Colors.white,
+          secondary: AppColors.black,
+          onSecondary: AppColors.black,
           error: Colors.red,
           onError: Colors.white,
           surface: Colors.white,
@@ -37,7 +37,7 @@ class AppTheme {
           unselectedItemColor: Colors.white),
       appBarTheme: AppBarTheme(
           foregroundColor: AppColors.black,
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(color: Colors.red),
           titleTextStyle: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 30,
@@ -57,7 +57,7 @@ class AppTheme {
           primary: AppColors.mainDarkColor,
           onPrimary: AppColors.mainDarkColor,
           secondary: Colors.white,
-          onSecondary: Colors.white,
+          onSecondary: AppColors.goldColor,
           error: Colors.red,
           onError: Colors.white,
           surface: Colors.white,

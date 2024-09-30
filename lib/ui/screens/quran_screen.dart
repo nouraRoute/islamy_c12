@@ -29,7 +29,8 @@ class _QuranScreenState extends State<QuranScreen> {
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.black),
+                icon: Icon(Icons.arrow_back,
+                    color: Theme.of(context).colorScheme.secondary),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),
@@ -56,7 +57,10 @@ class _QuranScreenState extends State<QuranScreen> {
                 const Divider(),
                 virses.isEmpty
                     ? Expanded(
-                        child: Center(child: CircularProgressIndicator()))
+                        child: Center(
+                            child: CircularProgressIndicator(
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      )))
                     : Expanded(
                         child: ListView.builder(
                         itemBuilder: (context, index) => Text(

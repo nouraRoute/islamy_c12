@@ -26,26 +26,33 @@ class _HadeethTabState extends State<HadeethTab> {
           height: MediaQuery.of(context).size.height * .25,
         ),
         Expanded(
-          child: ListView.separated(
-            itemBuilder: (context, index) => Center(
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(HadeethDetailsScreen.routName,
-                      arguments: hadeethModelList[index]);
-                },
-                child: Text(
-                  hadeethModelList[index].name,
-                  style: Theme.of(context).textTheme.titleMedium,
+          child: hadeethModelList.isEmpty
+              ? Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).colorScheme.onSecondary,
+                  ),
+                )
+              : ListView.separated(
+                  itemBuilder: (context, index) => Center(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                            HadeethDetailsScreen.routName,
+                            arguments: hadeethModelList[index]);
+                      },
+                      child: Text(
+                        hadeethModelList[index].name,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
+                  ),
+                  itemCount: hadeethModelList.length,
+                  separatorBuilder: (BuildContext context, int index) {
+                    return const Divider(
+                      height: 2,
+                    );
+                  },
                 ),
-              ),
-            ),
-            itemCount: hadeethModelList.length,
-            separatorBuilder: (BuildContext context, int index) {
-              return const Divider(
-                height: 2,
-              );
-            },
-          ),
         )
       ],
     );

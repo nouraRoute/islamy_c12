@@ -22,7 +22,8 @@ class HadeethDetailsScreen extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             leading: IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.black),
+                icon: Icon(Icons.arrow_back,
+                    color: Theme.of(context).colorScheme.secondary),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),
