@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islamy_c12/common/app_images.dart';
-import 'package:islamy_c12/ui/tabs/quran_tab.dart';
+import 'package:islamy_c12/ui/tabs/hadeeth_tab.dart';
 
-class QuranScreen extends StatefulWidget {
-  static const routName = 'QuranScreen';
-  const QuranScreen({super.key});
+class HadeethDetailsScreen extends StatelessWidget {
+  static const routName = 'hadeethDetailScreen';
 
-  @override
-  State<QuranScreen> createState() => _QuranScreenState();
-}
+  const HadeethDetailsScreen({super.key});
 
-class _QuranScreenState extends State<QuranScreen> {
-  List<String> virses = [];
   @override
   Widget build(BuildContext context) {
-    QuranModel quranModel =
-        ModalRoute.of(context)!.settings.arguments as QuranModel;
-    if (virses.isEmpty) tester(quranModel.index);
+    HadeethModel hadeethModel =
+        ModalRoute.of(context)!.settings.arguments as HadeethModel;
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -50,42 +43,22 @@ class _QuranScreenState extends State<QuranScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  quranModel.name,
+                  hadeethModel.name,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const Divider(),
-                virses.isEmpty
-                    ? Expanded(
-                        child: Center(child: CircularProgressIndicator()))
-                    : Expanded(
-                        child: ListView.builder(
-                        itemBuilder: (context, index) => Text(
-                          virses[index],
-                          style: Theme.of(context).textTheme.titleSmall,
-                          textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.center,
-                        ),
-                        itemCount: virses.length,
-                      ))
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Text(
+                      hadeethModel.content,
+                      style: Theme.of(context).textTheme.titleSmall,
+                      textDirection: TextDirection.rtl,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ));
-  }
-
-  Future<void> loadSuraContent(int index) async {
-    Future.delayed(Duration(minutes: 1));
-    rootBundle.loadString('assets/quran/${index + 1}.txt').then(
-      (value) {
-        virses = value.split('\n');
-        setState(() {});
-      },
-    );
-    print('xxxx');
-  }
-
-  tester(int index) async {
-    loadSuraContent(index);
-    print('xxx2');
   }
 }
