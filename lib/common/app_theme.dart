@@ -17,6 +17,10 @@ class AppTheme {
           surface: Colors.white,
           onSurface: Colors.white),
       textTheme: TextTheme(
+          titleSmall: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: AppColors.black),
           titleMedium: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w400,
