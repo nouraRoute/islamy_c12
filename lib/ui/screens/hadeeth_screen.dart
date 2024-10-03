@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islamy_c12/common/app_images.dart';
+import 'package:islamy_c12/providers/theme_provider.dart';
 import 'package:islamy_c12/ui/tabs/hadeeth_tab.dart';
+import 'package:provider/provider.dart';
 
 class HadeethDetailsScreen extends StatelessWidget {
   static const routName = 'hadeethDetailScreen';
@@ -14,10 +16,9 @@ class HadeethDetailsScreen extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(
-                    Theme.of(context).colorScheme.brightness == Brightness.light
-                        ? AppImages.bgImage
-                        : AppImages.darkBgImage),
+                image: AssetImage(!Provider.of<ThemeProvider>(context).isDark
+                    ? AppImages.bgImage
+                    : AppImages.darkBgImage),
                 fit: BoxFit.cover)),
         child: Scaffold(
           appBar: AppBar(

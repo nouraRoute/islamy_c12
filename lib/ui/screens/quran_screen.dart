@@ -62,14 +62,24 @@ class _QuranScreenState extends State<QuranScreen> {
                         color: Theme.of(context).colorScheme.onSecondary,
                       )))
                     : Expanded(
-                        child: ListView.builder(
-                        itemBuilder: (context, index) => Text(
-                          virses[index],
-                          style: Theme.of(context).textTheme.titleSmall,
-                          textDirection: TextDirection.rtl,
-                          textAlign: TextAlign.center,
-                        ),
-                        itemCount: virses.length,
+                        child: ListView(
+                        children: [
+                          RichText(
+                            textDirection: TextDirection.rtl,
+                            text: TextSpan(
+                              style: Theme.of(context).textTheme.titleSmall,
+                              children: virses
+                                  .map(
+                                    (e) => TextSpan(children: [
+                                      TextSpan(text: e),
+                                      TextSpan(
+                                          text: ' (${virses.indexOf(e) + 1}) ')
+                                    ]),
+                                  )
+                                  .toList(),
+                            ),
+                          )
+                        ],
                       ))
               ],
             ),
@@ -80,7 +90,12 @@ class _QuranScreenState extends State<QuranScreen> {
   Future<void> loadSuraContent(int index) async {
     rootBundle.loadString('assets/quran/${index + 1}.txt').then(
       (value) {
-        virses = value.split('\n');
+        virses = value
+            .split('\n')
+            .where(
+              (element) => element.trim().isNotEmpty,
+            )
+            .toList();
         setState(() {});
       },
     );

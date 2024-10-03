@@ -14,7 +14,7 @@ class AppTheme {
           onSecondary: AppColors.black,
           error: Colors.red,
           onError: Colors.white,
-          surface: Colors.white,
+          surface: AppColors.mainLightColor,
           onSurface: Colors.white),
       textTheme: TextTheme(
           titleLarge: TextStyle(
@@ -80,6 +80,7 @@ class AppTheme {
           selectedItemColor: AppColors.goldColor,
           unselectedItemColor: Colors.white),
       appBarTheme: AppBarTheme(
+          foregroundColor: Colors.white,
           iconTheme: IconThemeData(color: AppColors.black),
           titleTextStyle: TextStyle(
               fontWeight: FontWeight.w700, fontSize: 30, color: Colors.white),

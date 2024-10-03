@@ -142,7 +142,7 @@ class _QuranTabState extends State<QuranTab> {
             AppImages.quranHeaderIcn,
             height: MediaQuery.of(context).size.height * .25,
           ),
-          Divider(
+          const Divider(
             height: 5,
           ),
           Row(
@@ -169,7 +169,7 @@ class _QuranTabState extends State<QuranTab> {
               ),
             ],
           ),
-          Divider(
+          const Divider(
             height: 5,
           ),
           virsesCount.isEmpty
