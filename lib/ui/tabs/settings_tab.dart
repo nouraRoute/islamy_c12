@@ -52,7 +52,7 @@ class _SettingsTabState extends State<SettingsTab> {
               child: DropdownButton<String>(
                 dropdownColor: AppColors.goldColor.withOpacity(.5),
                 underline: Container(),
-                value: 'en',
+                value: provider.localeCode,
                 borderRadius: BorderRadius.circular(20),
                 items: [
                   DropdownMenuItem(
@@ -76,7 +76,12 @@ class _SettingsTabState extends State<SettingsTab> {
                     ),
                   )
                 ],
-                onChanged: (value) {},
+                onChanged: (value) {
+                  print('value-->$value');
+                  if (value != null) {
+                    provider.changeAppLocal(value);
+                  }
+                },
               ),
             ),
           )

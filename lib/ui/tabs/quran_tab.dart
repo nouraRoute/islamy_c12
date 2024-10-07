@@ -138,9 +138,12 @@ class _QuranTabState extends State<QuranTab> {
     return Stack(children: [
       Column(
         children: [
-          Image.asset(
-            AppImages.quranHeaderIcn,
-            height: MediaQuery.of(context).size.height * .25,
+          Padding(
+            padding: const EdgeInsets.only(left: 80.0, right: 50),
+            child: Image.asset(
+              AppImages.quranHeaderIcn,
+              height: MediaQuery.of(context).size.height * .25,
+            ),
           ),
           const Divider(
             height: 5,

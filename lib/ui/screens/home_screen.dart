@@ -5,6 +5,7 @@ import 'package:islamy_c12/ui/tabs/quran_tab.dart';
 import 'package:islamy_c12/ui/tabs/radio_tab.dart';
 import 'package:islamy_c12/ui/tabs/sebha_tab.dart';
 import 'package:islamy_c12/ui/tabs/settings_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routName = 'homeScreen';
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 fit: BoxFit.cover)),
         child: Scaffold(
           appBar: AppBar(
-            title: Text('islamy'),
+            title: Text(AppLocalizations.of(context)!.islamy),
           ),
           body: tabsList[index],
           bottomNavigationBar: BottomNavigationBar(
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage(AppImages.quranIcon)),
-                    label: 'quraan'),
+                    label: AppLocalizations.of(context)!.quraan),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage(AppImages.hadeethIcon)),
                     label: 'hadeeth'),
